@@ -1,4 +1,4 @@
-FROM ubuntu:14.04.3
+FROM debian:sid
 MAINTAINER Patrick Double <pat@patdouble.com>
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -18,7 +18,6 @@ VOLUME /cache
 VOLUME /media
 EXPOSE 3689
 
-RUN sed -i 's:/usr/bin/dbus:/bin/dbus:' /etc/init.d/dbus
 COPY forked-daapd.conf /etc/
 
 ADD ./start.sh /start.sh
