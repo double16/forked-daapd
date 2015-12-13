@@ -15,7 +15,9 @@ RUN apt-get install -qy --force-yes build-essential git autotools-dev autoconf l
   rm -rf /var/lib/apt/lists/* &&\
   rm -rf /tmp/*
 
-RUN apt-get install -qy --force-yes python-spotify
+RUN wget -q -O /etc/apt/sources.list.d/mopidy.list https://apt.mopidy.com/jessie.list &&\
+  apt-get update &&\
+  apt-get install -qy --force-yes python-spotify
 
 RUN git clone https://github.com/ejurgensen/forked-daapd.git &&\
   cd forked-daapd &&\
