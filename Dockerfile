@@ -9,7 +9,7 @@ ENV LANGUAGE en_US.UTF-8
 RUN apt-get -q update &&\
   apt-get -qy --force-yes dist-upgrade &&\
   apt-get install -qy --force-yes apt-utils forked-daapd avahi-daemon &&\
-  apt-get clean &&\
+  apt-get clean
 
 RUN apt-get install -qy -y &&\
   build-essential git autotools-dev autoconf libtool gettext gawk gperf &&\
@@ -19,6 +19,14 @@ RUN apt-get install -qy -y &&\
   libevent-dev libcurl4-openssl-dev &&\
   rm -rf /var/lib/apt/lists/* &&\
   rm -rf /tmp/*
+
+RUN git clone https://github.com/ejurgensen/forked-daapd.git &&\
+  cd forked-daapd &&\
+  autoreconf -i &&\
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var &&\
+  make &&\
+  make install
+  
 
 VOLUME /log
 VOLUME /cache
