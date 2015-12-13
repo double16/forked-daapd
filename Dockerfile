@@ -1,4 +1,4 @@
-FROM debian:sid
+FROM debian:jessie
 MAINTAINER Patrick Double <pat@patdouble.com>
 
 ENV DEBIAN_FRONTEND noninteractive
