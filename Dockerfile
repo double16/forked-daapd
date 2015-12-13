@@ -16,7 +16,7 @@ RUN apt-get install -qy --force-yes wget &&\
   wget -q -O - https://apt.mopidy.com/mopidy.gpg | sudo apt-key add - &&\
   wget -q -O /etc/apt/sources.list.d/mopidy.list https://apt.mopidy.com/jessie.list &&\
   apt-get update &&\
-  apt-get install -qy --force-yes install libspotify-dev python-spotify &&\
+  apt-get install -qy --force-yes libspotify-dev python-spotify &&\
   apt-get clean &&\
   rm -rf /var/lib/apt/lists/* &&\
   rm -rf /tmp/*
