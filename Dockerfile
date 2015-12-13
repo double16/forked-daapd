@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM ubuntu:latest
 MAINTAINER Patrick Double <pat@patdouble.com>
 
 ENV DEBIAN_FRONTEND noninteractive
