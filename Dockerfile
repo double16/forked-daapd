@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-MAINTAINER Patrick Double <pat@patdouble.com>
+MAINTAINER steffen <devnull@snizzle.org>
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV LANG en_US.UTF-8
