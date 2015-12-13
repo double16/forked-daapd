@@ -10,7 +10,8 @@ RUN apt-get -q update &&\
   apt-get -qy --force-yes dist-upgrade &&\
   apt-get install -qy --force-yes forked-daapd avahi-daemon &&\
   apt-get clean &&\
-RUN apt-get install &&\
+
+RUN apt-get install -qy -y &&\
   build-essential git autotools-dev autoconf libtool gettext gawk gperf &&\
   antlr3 libantlr3c-dev libconfuse-dev libunistring-dev libsqlite3-dev &&\
   libavcodec-dev libavformat-dev libavfilter-dev libswscale-dev libavutil-dev &&\
