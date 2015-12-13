@@ -8,7 +8,7 @@ ENV LANGUAGE en_US.UTF-8
 
 RUN apt-get -q update &&\
   apt-get -qy --force-yes dist-upgrade &&\
-  apt-get install -qy --force-yes forked-daapd avahi-daemon &&\
+  apt-get install -qy --force-yes apt-utils forked-daapd avahi-daemon &&\
   apt-get clean &&\
 
 RUN apt-get install -qy -y &&\
