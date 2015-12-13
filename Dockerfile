@@ -18,7 +18,7 @@ RUN apt-get install -qy --force-yes build-essential git autotools-dev autoconf l
 RUN git clone https://github.com/ejurgensen/forked-daapd.git &&\
   cd forked-daapd &&\
   autoreconf -i &&\
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var &&\
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --enable-spotify --enable-lastfm --enable-mpd &&\
   make &&\
   make install
   
