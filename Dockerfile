@@ -13,9 +13,10 @@ RUN apt-get -q update &&\
 RUN apt-get install -qy --force-yes build-essential git autotools-dev autoconf libtool gettext gawk gperf antlr3 libantlr3c-dev libconfuse-dev libunistring-dev libsqlite3-dev libavcodec-dev libavformat-dev libavfilter-dev libswscale-dev libavutil-dev libasound2-dev libmxml-dev libgcrypt11-dev libavahi-client-dev zlib1g-dev libevent-dev libcurl4-openssl-dev
   
 RUN apt-get install -qy --force-yes wget &&\
+  wget -q -O - https://apt.mopidy.com/mopidy.gpg | sudo apt-key add - &&\
   wget -q -O /etc/apt/sources.list.d/mopidy.list https://apt.mopidy.com/jessie.list &&\
   apt-get update &&\
-  apt-get install -qy --force-yes python-spotify &&\
+  apt-get install -qy --force-yes install libspotify-dev python-spotify &&\
   apt-get clean &&\
   rm -rf /var/lib/apt/lists/* &&\
   rm -rf /tmp/*
