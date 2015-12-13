@@ -15,7 +15,7 @@ RUN apt-get install &&\
   antlr3 libantlr3c-dev libconfuse-dev libunistring-dev libsqlite3-dev &&\
   libavcodec-dev libavformat-dev libavfilter-dev libswscale-dev libavutil-dev &&\
   libasound2-dev libmxml-dev libgcrypt11-dev libavahi-client-dev zlib1g-dev &&\
-  libevent-dev &&\
+  libevent-dev libcurl4-openssl-dev &&\
   rm -rf /var/lib/apt/lists/* &&\
   rm -rf /tmp/*
 
