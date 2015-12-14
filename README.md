@@ -1,5 +1,8 @@
-forked-daapd
+forked-daapd docker container
 ============
+
+forked from https://github.com/double16/forked-daapd
+adapted so that the current github version will be used (and compiled) so that spotify, mpd and lastfm support is enabled
 
 forked-daapd is an iTunes and Roku streaming music server.
 
