@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  daapd:
+    build: .
+
+  sut:
+    build: test
+    links:
+      - daapd
+    volumes:
+      - ./test/results:/results

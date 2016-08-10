@@ -1,13 +1,9 @@
 FROM debian:sid
 MAINTAINER Patrick Double <pat@patdouble.com>
 
-ENV DEBIAN_FRONTEND noninteractive
-ENV LANG en_US.UTF-8
-ENV LC_ALL C.UTF-8
-ENV LANGUAGE en_US.UTF-8
+ENV DEBIAN_FRONTEND=noninteractive LANG=en_US.UTF-8 LC_ALL=C.UTF-8 LANGUAGE=en_US.UTF-8
 
 RUN apt-get -q update &&\
-  apt-get -qy --force-yes dist-upgrade &&\
   apt-get install -qy --force-yes forked-daapd avahi-daemon &&\
   apt-get clean &&\
   rm -rf /var/lib/apt/lists/* &&\
