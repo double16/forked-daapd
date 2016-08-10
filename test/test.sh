@@ -1,5 +1,7 @@
 #!/bin/sh
 
+/wait-for-it.sh daapd:3689
+
 source /sh2ju.sh
 juLogClean
 
