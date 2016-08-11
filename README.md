@@ -1,4 +1,4 @@
-forked-daapd
+forked-daapd [![CircleCI](https://circleci.com/gh/double16/forked-daapd.svg?style=svg&circle-token=1de18e7c07e17952782ef19778e83fbd2f6b1b91)](https://circleci.com/gh/double16/forked-daapd)
 ============
 
 forked-daapd is an iTunes and Roku streaming music server.
