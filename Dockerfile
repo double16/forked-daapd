@@ -1,10 +1,8 @@
-FROM debian:sid
+FROM blitznote/debootstrap-amd64:16.04
 MAINTAINER Patrick Double <pat@patdouble.com>
 
-ENV DEBIAN_FRONTEND=noninteractive LANG=en_US.UTF-8 LC_ALL=C.UTF-8 LANGUAGE=en_US.UTF-8
-
 RUN apt-get -q update &&\
-  apt-get install -qy --force-yes forked-daapd avahi-daemon &&\
+  apt-get install -qy forked-daapd avahi-daemon &&\
   apt-get clean &&\
   rm -rf /var/lib/apt/lists/* &&\
   rm -rf /tmp/*
