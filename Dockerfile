@@ -2,7 +2,7 @@ FROM blitznote/debootstrap-amd64:16.04
 MAINTAINER Patrick Double <pat@patdouble.com>
 
 RUN apt-get -q update &&\
-  apt-get install -qy forked-daapd avahi-daemon &&\
+  apt-get install -qy forked-daapd=23.3-1 avahi-daemon &&\
   apt-get clean &&\
   rm -rf /var/lib/apt/lists/* &&\
   rm -rf /tmp/*
