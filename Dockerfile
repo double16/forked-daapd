@@ -31,3 +31,4 @@ RUN chmod u+x  /start.sh
 
 CMD ["/start.sh"]
 
+HEALTHCHECK CMD nc -zv localhost 3689 || exit 1
