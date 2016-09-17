@@ -16,7 +16,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.vcs-url="https://github.com/double16/forked-daapd.git"
 
 RUN apt-get -q update &&\
-  apt-get install -qy forked-daapd=23.3-1 avahi-daemon &&\
+  apt-get install -qy forked-daapd=23.3-1 avahi-daemon netcat-openbsd &&\
   apt-get clean &&\
   rm -rf /var/lib/apt/lists/* &&\
   rm -rf /tmp/*
