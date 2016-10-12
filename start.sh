@@ -2,9 +2,9 @@
 
 if [ -n "$PUID" -a "$(id -u daapd)" != "$PUID" ]; then usermod -o -u "$PUID" daapd ; fi
 
-mkdir -p /log/forked-daapd /cache/forked-daapd
-chown -R daapd /log/forked-daapd /cache/forked-daapd
-chmod -R u+rw /log/forked-daapd /cache/forked-daapd
+mkdir -p /cache/forked-daapd
+chown -R daapd /cache/forked-daapd
+chmod -R u+rw /cache/forked-daapd
 
 sed -i -e "s/name = \"Music Server\"/name = \"${MUSIC_SERVER_NAME:-Music Server}\"/" /etc/forked-daapd.conf
 sed -i -e "s:/media:${MUSIC_SERVER_DATA:-/media}:" /etc/forked-daapd.conf

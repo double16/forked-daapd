@@ -21,7 +21,7 @@ RUN apt-get -q update &&\
   rm -rf /var/lib/apt/lists/* &&\
   rm -rf /tmp/*
 
-VOLUME [ "/log", "/cache", "/media" ]
+VOLUME [ "/cache", "/media" ]
 EXPOSE 3689
 
 COPY forked-daapd.conf /etc/
