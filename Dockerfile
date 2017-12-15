@@ -5,7 +5,7 @@ ARG BUILD_DATE
 ARG SOURCE_COMMIT
 ARG DOCKERFILE_PATH
 ARG SOURCE_TYPE
-ARG VERSION=23.2-1
+ARG VERSION=23.3-1
 
 RUN apt-get -q update
 RUN apt-get install -y forked-daapd avahi-daemon netcat-openbsd &&\
