@@ -1,0 +1,34 @@
+#!/bin/bash -xe
+
+. ./hooks/env
+
+function retry {
+  local retry_max=$1
+  shift
+
+  local count=$retry_max
+  while [ $count -gt 0 ]; do
+    "$@" && break
+    count=$(($count - 1))
+    sleep 3
+  done
+
+  [ $count -eq 0 ] && {
+    echo "Retry failed [$retry_max]: $@" >&2
+    return 1
+  }
+  return 0
+}
+
+function finish {
+  if [ -n "${CID}" ]; then
+    docker logs ${CID}
+    docker rm -f ${CID}
+  fi
+}
+trap finish EXIT
+
+export IMAGE_NAME
+CID=$(docker run -d $IMAGE_NAME)
+
+retry 30 docker run --rm --network container:${CID} appropriate/nc -z -w 10 localhost 3689
