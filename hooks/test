@@ -21,10 +21,12 @@ function retry {
 }
 
 function finish {
+  RESULT=$?
   if [ -n "${CID}" ]; then
     docker logs ${CID}
     docker rm -f ${CID}
   fi
+  [ $RESULT = 0 ] && echo "PASS" || echo "FAIL"
 }
 trap finish EXIT
 
