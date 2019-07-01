@@ -7,4 +7,5 @@ docker build \
 	--build-arg "DOCKERFILE_PATH=$DOCKERFILE_PATH" \
 	--build-arg "SOURCE_TYPE=$SOURCE_TYPE" \
 	${VERSION:+--build-arg "VERSION=$VERSION"} \
+    ${APT_PROXY:+--build-arg "APT_PROXY=${APT_PROXY}"} \
 	-t $IMAGE_NAME .

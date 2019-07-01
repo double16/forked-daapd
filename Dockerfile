@@ -1,15 +1,19 @@
-FROM blitznote/debootstrap-amd64:18.04
+FROM ubuntu:19.04
 
 ARG SOURCE_COMMIT
 ARG DOCKERFILE_PATH
 ARG SOURCE_TYPE
-ARG VERSION=24.2-2
+ARG VERSION=26.4
+ARG APT_PROXY
 
-RUN apt-get -q update &&\
-  apt-get install -y forked-daapd avahi-daemon netcat-openbsd &&\
+ENV DEBIAN_FRONTEND=noninteractive container=docker
+RUN if [ -n "${APT_PROXY}" ]; then echo "Acquire::HTTP::Proxy \"${APT_PROXY}\";\nAcquire::HTTPS::Proxy false;\n" >> /etc/apt/apt.conf.d/01proxy; cat /etc/apt/apt.conf.d/01proxy; fi &&\
+  apt-get -q update &&\
+  apt-get install -y forked-daapd=${VERSION}+* avahi-daemon netcat-openbsd &&\
   apt-get clean &&\
   rm -rf /var/lib/apt/lists/* &&\
-  rm -rf /tmp/*
+  rm -rf /tmp/* &&\
+  rm -f /etc/apt/apt.conf.d/01proxy
 
 COPY forked-daapd.conf /etc/
 
